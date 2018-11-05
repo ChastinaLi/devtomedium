@@ -1,17 +1,18 @@
-package main
+package pkg
 
 import (
-	medium "github.com/medium/medium-sdk-go"
 	"log"
+
+	medium "github.com/medium/medium-sdk-go"
 )
 
-func main() {
+func upload() {
 	// Go to https://medium.com/me/applications to get your applicationId and applicationSecret.
 	m := medium.NewClient("YOUR_APPLICATION_ID", "YOUR_APPLICATION_SECRET")
 
 	// Build the URL where you can send the user to obtain an authorization code.
 	url := m.GetAuthorizationURL("secretstate", "https://yoursite.com/callback/medium",
-        medium.ScopeBasicProfile, medium.ScopePublishPost)
+		medium.ScopeBasicProfile, medium.ScopePublishPost)
 
 	// (Send the user to the authorization URL to obtain an authorization code.)
 
